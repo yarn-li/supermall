@@ -11,27 +11,36 @@ const Category = () =>
 	import("@/views/category/Category.vue")
 const Profile = () =>
 	import("@/views/profile/Profile.vue")
+const Mulitdata = ()=>
+	import("@/views/mulitdata/Mulitdata.vue")
 
 const routes = [{
 	path: "/",
-	name: "home",
+	// name: "home",
 	redirect: "/home"
 }, {
 	path: "/home",
-	name: "home",
-	component: Home
+	// name: "home",
+	component: Home,
+	meta: { 
+		keepAlive: true // 需要缓存 
+		}, 
 }, {
 	path: "/category",
-	name: "category",
+	// name: "category",
 	component: Category
 }, {
 	path: "/cart",
-	name: "cart",
+	// name: "cart",
 	component: Cart
 }, {
 	path: "/profile",
-	name: "profile",
+	// name: "profile",
 	component: Profile
+}, {
+	path: "/mulitdata",
+	// name: "profile",
+	component: Mulitdata
 }]
 
 const router = new VueRouter({
