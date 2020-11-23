@@ -9,7 +9,7 @@ export default {
 	name: "goodsitem",
 	methods: {
 		itemclick() {
-			this.$router.push("/mulitdata");
+			this.$router.push(`/mulitdata?datile= `);
 		},
 	},
 };
