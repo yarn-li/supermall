@@ -5,13 +5,15 @@ export function request(config){
 
   const instance  = axios.create(
     {
-      baseURL:"http://152.136.185.210:8000/api/w6",
+      // baseURL:"http://152.136.185.210:8000/api/w6",
+      baseURL:"/search",
       timeout:5000
     }
   )
 
   instance.interceptors.request.use(
     config=>{
+      console.log(config);
     return config
     },err=>{
       console.log(err);

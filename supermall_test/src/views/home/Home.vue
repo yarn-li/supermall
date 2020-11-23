@@ -142,9 +142,13 @@ export default {
 			this.banners = res.data.banner.list;
 			this.recommends = res.data.recommend.list;
 		});
-		getHomePopdata(1).then((res) => {
-			this.goods.pop.list.push(...res.data.list);
-		});
+		getHomePopdata(1)
+			.then((res) => {
+				this.goods.pop.list.push(...res.data.list);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 		getHomeSelldata(1).then((res) => {
 			this.goods.sell.list.push(...res.data.list);
 		});
