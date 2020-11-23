@@ -1,6 +1,6 @@
 <template>
 	<div class="goods">
-		<goodsitem v-for="(item, index) in good" :key="index">
+		<goodsitem v-for="(item, index) in good" :key="index" :iid="item.iid">
 			<img slot="item-img" :src="item.show.img" @load="imageLoad" alt="" />
 			<div slot="item-info">
 				<p>{{ item.title }}</p>

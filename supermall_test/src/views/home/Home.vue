@@ -138,21 +138,17 @@ export default {
 	mounted() {},
 	created() {
 		getHomeMultidata().then((res) => {
-			console.log(res);
 			this.banners = res.data.banner.list;
 			this.recommends = res.data.recommend.list;
 		});
-		getHomePopdata(1)
-			.then((res) => {
-				this.goods.pop.list.push(...res.data.list);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		getHomePopdata(1).then((res) => {
+			this.goods.pop.list.push(...res.data.list);
+		});
 		getHomeSelldata(1).then((res) => {
 			this.goods.sell.list.push(...res.data.list);
 		});
 		getHomeNewdata(1).then((res) => {
+			console.log(res);
 			this.goods.new.list.push(...res.data.list);
 		});
 

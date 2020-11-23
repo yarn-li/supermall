@@ -7,9 +7,15 @@
 <script>
 export default {
 	name: "goodsitem",
+	props: {
+		iid: {
+			type: String,
+			default: "",
+		},
+	},
 	methods: {
 		itemclick() {
-			this.$router.push(`/mulitdata?datile= `);
+			this.$router.push(`/mulitdata?iid=${this.iid}`);
 		},
 	},
 };
