@@ -1,10 +1,22 @@
 <template>
 	<div class="goodsitem" @click="itemclick">
-		<div class="item-img"><slot name="item-img"></slot></div>
-		<div class="item-info"><slot name="item-info"></slot></div>
+		<div class="item-img">
+			<img :src="showImage" @load="imageLoad" alt="" />
+		</div>
+		<div class="item-info">
+			<p>{{ gooditem.title }}</p>
+			<p>
+				<span>{{ gooditem.price }}</span>
+				<span>
+					<img src="@/assets/img/common/collect.svg" alt="" />
+					{{ gooditem.cfav }}
+				</span>
+			</p>
+		</div>
 	</div>
 </template>
 <script>
+import { debounce } from "@/common/debounce";
 export default {
 	name: "goodsitem",
 	props: {
@@ -12,10 +24,26 @@ export default {
 			type: String,
 			default: "",
 		},
+		gooditem: {
+			type: Object,
+			default() {
+				return {};
+			},
+		},
+	},
+	computed: {
+		showImage() {
+			return this.gooditem.image || this.gooditem.show.img;
+		},
 	},
 	methods: {
 		itemclick() {
-			this.$router.push(`/mulitdata?iid=${this.iid}`);
+			this.$router.push(`/mulitdata/${this.iid}`);
+		},
+		imageLoad() {
+			debounce(() => {
+				this.$bus.$emit("ItemImageLoad");
+			}, 100);
 		},
 	},
 };

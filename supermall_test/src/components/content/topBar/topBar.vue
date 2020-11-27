@@ -14,7 +14,7 @@ export default {
 .topbar {
 	display: flex;
 	height: 44px;
-	background-color: --color-high-text;
+	background-color: var(--color-high-text);
 	line-height: 44px;
 	text-align: center;
 }
@@ -23,6 +23,8 @@ export default {
 	width: 70px;
 }
 .center {
+	display: flex;
 	flex: 1;
+	justify-content: space-around;
 }
 </style>

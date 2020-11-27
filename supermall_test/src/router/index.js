@@ -13,6 +13,10 @@ const Profile = () =>
 	import("@/views/profile/Profile.vue")
 const Mulitdata = ()=>
 	import("@/views/mulitdata/Mulitdata.vue")
+const Login = ()=>
+	import("@/views/user/Login.vue")
+const Register = ()=>
+	import("@/views/user/Register.vue")
 
 const routes = [{
 	path: "/",
@@ -27,20 +31,22 @@ const routes = [{
 		}, 
 }, {
 	path: "/category",
-	// name: "category",
 	component: Category
 }, {
 	path: "/cart",
-	// name: "cart",
 	component: Cart
 }, {
 	path: "/profile",
-	// name: "profile",
 	component: Profile
 }, {
-	path: "/mulitdata",
-	// name: "profile",
+	path: "/mulitdata/:iid",
 	component: Mulitdata
+}, {
+	path: "/login",
+	component: Login
+}, {
+	path: "/register",
+	component: Register
 }]
 
 const router = new VueRouter({

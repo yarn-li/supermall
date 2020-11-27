@@ -135,7 +135,6 @@ export default {
 			this.$refs.scroll.scroll.scrollTo(0, 0, 500);
 		},
 	},
-	mounted() {},
 	created() {
 		getHomeMultidata().then((res) => {
 			this.banners = res.data.banner.list;
@@ -148,7 +147,6 @@ export default {
 			this.goods.sell.list.push(...res.data.list);
 		});
 		getHomeNewdata(1).then((res) => {
-			console.log(res);
 			this.goods.new.list.push(...res.data.list);
 		});
 
